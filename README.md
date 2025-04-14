@@ -62,8 +62,13 @@ src/
 Create a `.env` file:
 
 ```env
-DATABASE_URL=postgresql://user:password@localhost:5432/your_database
-PORT=3000
+
+DB_HOST = your_host
+DB_USER = your_username
+DB_PASS = your_password
+DB_NAME = database_name
+DB_PORT = port
+
 ```
 
 ---
