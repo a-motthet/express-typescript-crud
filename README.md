@@ -1,38 +1,98 @@
-# express-typescript
+# 🧪 Express TypeScript API
 
-To install dependencies:
+A simple RESTful API built with **Express.js** and **TypeScript**, following a clean folder structure and modular design. This project demonstrates basic CRUD operations with mock data and PostgreSQL connectivity.
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Installation
 
 ```bash
 bun install
 ```
 
-To run:
+or if you're using npm:
 
 ```bash
-bun run index.ts
+npm install
 ```
 
-This project was created using `bun init` in bun v1.2.9. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+### ▶️ Run the Project
 
-<details> <summary><strong>📁 Folder Structure</strong></summary>
+```bash
+bun run dev
+```
+
+or with nodemon:
+
+```bash
+npx nodemon
+```
+
+---
+
+## 📁 Folder Structure
+
+<details>
+<summary><strong>Click to expand</strong></summary>
+
+```
 src/
-├── controllers/         # จัดการ logic
+├── controllers/         # จัดการ logic ที่ตอบสนองต่อ HTTP requests
 │   └── productController.ts
 │
-├── models/              # กำหนด interface
+├── models/              # กำหนด interface หรือ type สำหรับข้อมูล (TypeScript types)
 │   └── productModels.ts
 │
-├── routes/              # กำหนด routes
-│   ├── dbtestRoutes.ts
-│   ├── productRoutes.ts
-│   ├── productRoutes_old.ts
-│   └── testRoutes.ts
+├── routes/              # กำหนดเส้นทาง (routes) ของ API
+│   ├── dbtestRoutes.ts        # สำหรับทดสอบการเชื่อมต่อฐานข้อมูล
+│   ├── productRoutes.ts       # เส้นทางสำหรับจัดการสินค้า
+│   ├── productRoutes_old.ts   # ไฟล์เวอร์ชันเก่า (ควรถูก ignore แล้ว)
+│   └── testRoutes.ts          # เส้นทางสำหรับทดสอบเบื้องต้น
 │
-├── services/
+├── services/            # จัดการ business logic หรือเชื่อมต่อฐานข้อมูล
 │   └── productService.ts
 │
-├── utils/               
-│   └── db.ts            # db connection
+├── utils/               # utility functions ที่ใช้ร่วมกัน เช่น db connection
+│   └── db.ts
 │
-├── app.ts
+├── app.ts               # จุดเริ่มต้นของแอป Express (entry point)
+```
+
 </details>
+
+---
+
+## 🔌 API Endpoints
+
+| Method | Endpoint         | Description                      |
+|--------|------------------|----------------------------------|
+| GET    | `/api/product`   | Get all products                 |
+| GET    | `/api/product/:id` | Get product by ID               |
+| POST   | `/api/product`   | Add new product                  |
+| GET    | `/api/testdb`    | Test DB connection               |
+| GET    | `/api/test`      | Test API connection              |
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/your_database
+PORT=3000
+```
+
+---
+
+## 📦 Built With
+
+- [Express.js](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [pg (node-postgres)](https://node-postgres.com/)
+- [bun](https://bun.sh/) or [npm](https://www.npmjs.com/)
+- [ts-node-dev](https://github.com/wclr/ts-node-dev) (optional)
+
+---
